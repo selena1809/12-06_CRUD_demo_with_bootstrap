@@ -1,0 +1,26 @@
+
+<div class="container">
+  <h1>Listing categories</h1>
+  <table class="table .table-striped .table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Code</th>
+      <th colspan="3">Action</th>
+    </tr>
+
+    <% @categories.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><%= c.price %></td>
+      <td><%= c.description %></td>
+      <td><%= c.code %></td>
+      <td><%= link_to 'Show', category_path(c) %> / 
+        <%= link_to 'Edit', edit_category_path(c) %> / 
+        <%= link_to 'Destroy', category_path(c), 
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </table>
